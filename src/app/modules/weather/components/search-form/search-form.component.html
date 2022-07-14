@@ -1,0 +1,31 @@
+<form class="search-form">
+  <mat-form-field
+    cdkOverlayOrigin
+    #originOverlay="cdkOverlayOrigin"
+    class="search-form__input"
+    appearance="fill"
+  >
+    <mat-icon matPrefix>search</mat-icon>
+    <mat-label>City</mat-label>
+
+    <input matInput placeholder="City" />
+  </mat-form-field>
+
+  <ng-template
+    cdkConnectedOverlay
+    cdkConnectedOverlayHasBackdrop
+    cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+    [cdkConnectedOverlayOrigin]="originOverlay"
+    [cdkConnectedOverlayOpen]="showPanel$ | async"
+    [cdkConnectedOverlayOffsetY]="-22"
+  >
+    <div class="search-form__panel">
+      <div
+        *ngFor="let city of ['Orneta', 'Olsztyn']"
+        class="search-form__panel__item"
+      >
+        <p>{{ city }}</p>
+      </div>
+    </div>
+  </ng-template>
+</form>

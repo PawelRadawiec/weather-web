@@ -49,14 +49,16 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #f8f9fa;
 }
 
 .container {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto 1fr auto;
   row-gap: 16px;
   height: 100vh;
+  background: #f8f9fa;
 
   grid-template-areas:
     "header header"
@@ -70,11 +72,9 @@ app-header {
 
 app-main {
   grid-area: content;
+  background: #f8f9fa;
 }
 
 app-footer {
   grid-area: footer;
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,36 @@
+$input-width: 50rem;
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  max-width: $input-width;
+  width: 90vw;
+}
+
+.search-form__input {
+  max-width: $input-width;
+  width: 40vw;
+}
+
+.search-form__panel {
+  display: flex;
+  flex-direction: column;
+
+  background: #fff;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  max-width: $input-width;
+  width: 40vw;
+}
+
+.search-form__panel__item {
+  padding: 10px 0;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+  color: #adb5bd;
+}
+
+.search-form__panel__item:hover {
+  background: #e8e8e8;
+}
