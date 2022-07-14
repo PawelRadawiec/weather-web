@@ -8,6 +8,9 @@ import { MatInputModule } from '@angular/material/input';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { A11yModule } from '@angular/cdk/a11y';
 import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { WeatherService } from 'src/app/services/weather.service';
 
 @NgModule({
   declarations: [SearchFormComponent, SearchComponent],
@@ -17,7 +20,10 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     OverlayModule,
     A11yModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
+  providers: []
 })
 export class WeatherModule {}

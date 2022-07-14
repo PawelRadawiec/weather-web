@@ -8,7 +8,7 @@
     <mat-icon matPrefix>search</mat-icon>
     <mat-label>City</mat-label>
 
-    <input matInput placeholder="City" />
+    <input matInput placeholder="City" [formControl]="nameControl" />
   </mat-form-field>
 
   <ng-template
@@ -21,10 +21,12 @@
   >
     <div class="search-form__panel">
       <div
-        *ngFor="let city of ['Orneta', 'Olsztyn']"
         class="search-form__panel__item"
+        (click)="goToDetails(city)"
+        *ngFor="let city of (searchResult$ | async)"
       >
-        <p>{{ city }}</p>
+        <p>{{ city.country }}</p>
+        <p>{{ city.name }}</p>
       </div>
     </div>
   </ng-template>
