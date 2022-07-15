@@ -1,15 +1,8 @@
-$input-width: 50rem;
-
-.search-form {
-  display: flex;
-  justify-content: center;
-  max-width: $input-width;
-  width: 90vw;
-}
+$input-width: 70rem;
 
 .search-form__input {
   max-width: $input-width;
-  width: 40vw;
+  width: 70vw;
 }
 
 .search-form__panel {
@@ -20,7 +13,7 @@ $input-width: 50rem;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   max-width: $input-width;
-  width: 40vw;
+  width: 70vw;
 }
 
 .search-form__panel__item {
