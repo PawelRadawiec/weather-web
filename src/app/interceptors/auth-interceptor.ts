@@ -15,7 +15,6 @@ export class AuthInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log('asdsada');
     const authReq = req.clone({
       headers: new HttpHeaders(environment.rapidApiHeaders),
     });

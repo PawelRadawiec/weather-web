@@ -16,10 +16,12 @@ import {
   merge,
   debounceTime,
   Subscription,
-  tap,
+  distinctUntilChanged,
+  finalize,
 } from 'rxjs';
 import { CitySearchResult } from 'src/app/models/city-search-response.model';
 import { WeatherService } from 'src/app/services/weather.service';
+import { WeatherStoreService } from '../../store/weather-store.service';
 
 @Component({
   selector: 'app-search-form',
@@ -31,8 +33,6 @@ export class SearchFormComponent implements OnInit, OnDestroy {
   private connectedOverlay: CdkConnectedOverlay;
   @ViewChild(MatInput, { read: ElementRef, static: true })
   private inputEl: ElementRef;
-  private isPanelVisible$: Observable<boolean>;
-  private isPanelHidden$: Observable<boolean>;
   private subscription = new Subscription();
 
   nameControl = new FormControl('');
@@ -41,24 +41,25 @@ export class SearchFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private focousMonitor: FocusMonitor,
-    private weatherService: WeatherService
+    public weatherService: WeatherService,
+    public weatherStore: WeatherStoreService
   ) {}
 
   ngOnInit() {
-    this.isPanelVisible$ = this.focousMonitor.monitor(this.inputEl).pipe(
-      filter((focused) => !!focused),
-      map(() => true)
+    this.showPanel$ = merge(
+      merge(
+        this.connectedOverlay.detach,
+        this.connectedOverlay.backdropClick
+      ).pipe(map(() => false)),
+      this.focousMonitor.monitor(this.inputEl).pipe(
+        filter((focused) => !!focused),
+        map(() => true)
+      )
     );
-    this.isPanelHidden$ = merge(
-      this.connectedOverlay.detach,
-      this.connectedOverlay.backdropClick
-    ).pipe(map(() => false));
-
-    this.showPanel$ = merge(this.isPanelHidden$, this.isPanelVisible$);
 
     this.subscription.add(
       this.nameControl.valueChanges
-        .pipe(debounceTime(1_000))
+        .pipe(debounceTime(1_000), distinctUntilChanged())
         .subscribe((name: string) => {
           this.searchResult$ = this.weatherService.cities(name);
         })
@@ -69,5 +70,5 @@ export class SearchFormComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  goToDetails(city: any) {}
+  goToDetails(city: CitySearchResult) {}
 }

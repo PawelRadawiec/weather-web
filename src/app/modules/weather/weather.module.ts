@@ -10,8 +10,7 @@ import { A11yModule } from '@angular/cdk/a11y';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { WeatherService } from 'src/app/services/weather.service';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 @NgModule({
   declarations: [SearchFormComponent, SearchComponent],
   imports: [
@@ -22,8 +21,9 @@ import { WeatherService } from 'src/app/services/weather.service';
     A11yModule,
     MatIconModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressBarModule,
   ],
-  providers: []
+  providers: [],
 })
 export class WeatherModule {}

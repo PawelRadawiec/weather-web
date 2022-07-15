@@ -9,8 +9,8 @@
     <mat-label>City</mat-label>
 
     <input matInput placeholder="City" [formControl]="nameControl" />
+    <mat-progress-bar *ngIf="weatherStore.loading$ | async" mode="indeterminate"></mat-progress-bar>
   </mat-form-field>
-
   <ng-template
     cdkConnectedOverlay
     cdkConnectedOverlayHasBackdrop
