@@ -9,7 +9,10 @@
     <mat-label>City</mat-label>
 
     <input matInput placeholder="City" [formControl]="nameControl" />
-    <mat-progress-bar *ngIf="weatherStore.loading$ | async" mode="indeterminate"></mat-progress-bar>
+    <mat-progress-bar
+      *ngIf="weatherStore.loading$ | async"
+      mode="indeterminate"
+    ></mat-progress-bar>
   </mat-form-field>
   <ng-template
     cdkConnectedOverlay
@@ -23,10 +26,10 @@
       <div
         class="search-form__panel__item"
         (click)="goToDetails(city)"
-        *ngFor="let city of (searchResult$ | async)"
+        *ngFor="let city of searchResult$ | async"
       >
-        <p>{{ city.country }}</p>
         <p>{{ city.name }}</p>
+        <p>{{ city.country }}</p>
       </div>
     </div>
   </ng-template>

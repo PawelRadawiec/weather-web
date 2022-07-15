@@ -10,8 +10,8 @@ $input-width: 70rem;
   flex-direction: column;
 
   background: #fff;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   max-width: $input-width;
   width: 70vw;
 }
@@ -20,7 +20,7 @@ $input-width: 70rem;
   display: flex;
   justify-content: space-between;
 
-  padding: 10px 5px;
+  padding: 10px 10px;
   font-size: 1.2rem;
   text-align: center;
   font-weight: 500;
