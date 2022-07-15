@@ -15,9 +15,8 @@ import {
   map,
   merge,
   debounceTime,
-  tap,
   Subscription,
-  mergeMap,
+  tap,
 } from 'rxjs';
 import { CitySearchResult } from 'src/app/models/city-search-response.model';
 import { WeatherService } from 'src/app/services/weather.service';
