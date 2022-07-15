@@ -11,8 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { DetailsComponent } from './components/details/details.component';
 @NgModule({
-  declarations: [SearchFormComponent, SearchComponent],
+  declarations: [SearchFormComponent, SearchComponent, DetailsComponent],
   imports: [
     CommonModule,
     WeatherRoutingModule,
