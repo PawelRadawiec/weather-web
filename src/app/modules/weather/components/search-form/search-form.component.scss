@@ -1,0 +1,32 @@
+$input-width: 70rem;
+
+.search-form__input {
+  max-width: $input-width;
+  width: 70vw;
+}
+
+.search-form__panel {
+  display: flex;
+  flex-direction: column;
+
+  background: #fff;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  max-width: $input-width;
+  width: 70vw;
+}
+
+.search-form__panel__item {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 10px 10px;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+  color: #adb5bd;
+}
+
+.search-form__panel__item:hover {
+  background: #e8e8e8;
+}
