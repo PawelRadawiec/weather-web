@@ -11,7 +11,9 @@
         <p>{{ details?.location?.region }}</p>
         <p>{{ details?.location?.tz_id }}</p>
       </div>
-      <button mat-raised-button color="primary">Refresh</button>
+      <button mat-raised-button color="primary" (click)="onRefresh()">
+        Refresh
+      </button>
     </div>
   </header>
   <section class="card__content">
