@@ -4,5 +4,11 @@
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
+  },
+  "/current/*": {
+    "target": "https://weatherapi-com.p.rapidapi.com",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 }

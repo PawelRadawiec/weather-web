@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
-import { catchError, map, of } from 'rxjs';
+import { catchError, forkJoin, from, map, of, tap } from 'rxjs';
 import { CitySearchResult } from 'src/app/models/city-search-response.model';
 import { WeatherService } from 'src/app/services/weather.service';
 import { WeatherStoreService } from '../store/weather-store.service';
@@ -15,18 +15,16 @@ export class DetailsResolver implements Resolve<boolean> {
   ) {}
 
   resolve(route: ActivatedRouteSnapshot) {
-    const { id, name } = route.params;
-    return this.weatherService.cities(name).pipe(
-      map((cities: CitySearchResult[]) => this.findCity(id, cities)),
+    const { latitude, longitude } = route.params;
+
+    const currentDetails$ = this.weatherService.current(latitude, longitude);
+
+    return forkJoin([currentDetails$]).pipe(
+      map(([currentDetails]) => {
+        this.weatherStore.setCurrentDetails(currentDetails);
+        return true;
+      }),
       catchError(() => of(false))
     );
-  }
-
-  private findCity(id: number, cities: CitySearchResult[]) {
-    const city = cities.find((item) => item.id === Number(id));
-    if (city) {
-      this.weatherStore.setCity(city);
-    }
-    return city !== null;
   }
 }

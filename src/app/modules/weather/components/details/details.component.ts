@@ -6,7 +6,8 @@ import { WeatherStoreService } from '../../store/weather-store.service';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss'],
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent implements OnInit {  
+
   constructor(public weatherStore: WeatherStoreService) {}
 
   ngOnInit() {}

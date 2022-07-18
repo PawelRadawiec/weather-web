@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { CitySearchResult } from 'src/app/models/city-search-response.model';
+import { WeatherDetails } from 'src/app/models/weather-details.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,11 @@ export class WeatherStoreService {
   private _citySubject = new BehaviorSubject<CitySearchResult>(null);
   readonly city$ = this._citySubject.asObservable();
 
+  private _cityCurrentDetailsSubject = new BehaviorSubject<WeatherDetails>(
+    null
+  );
+  readonly cityCurrentDetails$ = this._cityCurrentDetailsSubject.asObservable();
+
   constructor() {}
 
   setLoading(loading: boolean) {
@@ -20,5 +26,9 @@ export class WeatherStoreService {
 
   setCity(city: CitySearchResult) {
     this._citySubject.next(city);
+  }
+
+  setCurrentDetails(weatherDetails: WeatherDetails) {
+    this._cityCurrentDetailsSubject.next(weatherDetails);
   }
 }

@@ -10,7 +10,7 @@ const routes: Routes = [
     component: SearchComponent,
   },
   {
-    path: 'details/:id/:name',
+    path: 'details/:latitude/:longitude',
     component: DetailsComponent,
     resolve: [DetailsResolver],
   },

@@ -72,6 +72,6 @@ export class SearchFormComponent implements OnInit, OnDestroy {
   }
 
   goToDetails(city: CitySearchResult) {
-    this.router.navigate([`weather/details/${city.id}/${city.name}`]);
+    this.router.navigate([`weather/details/${city.lat}/${city.lon}`]);
   }
 }
