@@ -5,9 +5,9 @@
 export const environment = {
   production: false,
   rapidApiHeaders: {
-    'X-RapidAPI-Host': 'HOST',
-    'X-RapidAPI-Key': 'KEY',
-  }
+    'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com',
+    'X-RapidAPI-Key': '3a15b4bf5amshf869fd4e7deea76p18745djsnd55552c61695',
+  },
 };
 
 /*

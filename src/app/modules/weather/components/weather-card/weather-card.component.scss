@@ -1,0 +1,29 @@
+.card {
+  background: #fff;
+  max-width: 900px;
+  color: #495057;
+  font-weight: 500;
+  padding: 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.card__header--right,
+.card__header--left {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.card__header--right {
+  flex-direction: row;
+  gap: 15px;
+}

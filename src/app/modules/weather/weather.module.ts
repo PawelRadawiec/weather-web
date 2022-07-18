@@ -12,8 +12,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DetailsComponent } from './components/details/details.component';
+import { WeatherCardComponent } from './components/weather-card/weather-card.component';
+
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
-  declarations: [SearchFormComponent, SearchComponent, DetailsComponent],
+  declarations: [
+    SearchFormComponent,
+    SearchComponent,
+    DetailsComponent,
+    WeatherCardComponent,
+  ],
   imports: [
     CommonModule,
     WeatherRoutingModule,
@@ -24,6 +32,7 @@ import { DetailsComponent } from './components/details/details.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatProgressBarModule,
+    MatButtonModule,
   ],
   providers: [],
 })
