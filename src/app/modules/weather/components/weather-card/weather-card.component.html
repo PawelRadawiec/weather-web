@@ -1,19 +1,29 @@
 <div class="card">
   <header class="card__header">
     <div class="card__header--left">
-      <h2>Gdansk</h2>
-      <p>2022-07-15 15:29</p>
+      <h2>{{ details?.location?.name }}</h2>
+      <p>{{ details?.location?.localtime }}</p>
     </div>
 
     <div class="card__header--right">
-      <button mat-raised-button color="primary">Refresh</button>
       <div>
-        <p>United Kingdom</p>
-        <p>City of London, Greater London</p>
+        <p>{{ details?.location?.country }}</p>
+        <p>{{ details?.location?.region }}</p>
+        <p>{{ details?.location?.tz_id }}</p>
       </div>
+      <button mat-raised-button color="primary">Refresh</button>
     </div>
   </header>
   <section class="card__content">
-    <ng-content></ng-content>
+    <div class="card_content__item">
+      <p>{{ details?.current?.is_day | day }}</p>
+      <div class="card_content__item--condition">
+        <img [src]="details?.current?.condition?.icon" />
+        <p>{{ details?.current?.condition?.text }}</p>
+      </div>
+
+      <p>{{ details?.current?.temp_c }} &#8451;</p>
+      <p>{{ details?.current?.temp_f }} &#8457;</p>
+    </div>
   </section>
 </div>

@@ -24,11 +24,11 @@ export class WeatherService {
       );
   }
 
-  current(latitude: number, longitude: number) {
+  current(latitude: number, longitude: number, name: string) {
     this.weatherStore.setLoading(true);
     return this.http
       .get<WeatherDetails>(`/current.json`, {
-        params: { q: `${latitude},${longitude}` },
+        params: { q: `${latitude},${longitude},${name}` },
       })
       .pipe(
         shareReplay(),

@@ -15,12 +15,14 @@ import { DetailsComponent } from './components/details/details.component';
 import { WeatherCardComponent } from './components/weather-card/weather-card.component';
 
 import { MatButtonModule } from '@angular/material/button';
+import { DayPipe } from './pipes/day.pipe';
 @NgModule({
   declarations: [
     SearchFormComponent,
     SearchComponent,
     DetailsComponent,
     WeatherCardComponent,
+    DayPipe,
   ],
   imports: [
     CommonModule,

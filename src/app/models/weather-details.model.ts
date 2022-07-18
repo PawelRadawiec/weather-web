@@ -1,11 +1,12 @@
 export interface WeatherDetails {
   location: CityLocation;
-  current: CityLocation;
+  current: Current;
 }
 
 export interface CityLocation {
   name: string;
   region: string;
+  condition: Condition;
   country: string;
   lat: number;
   lon: number;

@@ -15,9 +15,9 @@ export class DetailsResolver implements Resolve<boolean> {
   ) {}
 
   resolve(route: ActivatedRouteSnapshot) {
-    const { latitude, longitude } = route.params;
+    const { latitude, longitude, name } = route.params;
 
-    const currentDetails$ = this.weatherService.current(latitude, longitude);
+    const currentDetails$ = this.weatherService.current(latitude, longitude, name);
 
     return forkJoin([currentDetails$]).pipe(
       map(([currentDetails]) => {

@@ -2,7 +2,7 @@
   background: #fff;
   max-width: 900px;
   color: #495057;
-  font-weight: 500;
+  font-weight: 600;
   padding: 1.2rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -26,4 +26,28 @@
 .card__header--right {
   flex-direction: row;
   gap: 15px;
+}
+
+.card__content {
+  display: flex;
+  justify-content: center;
+}
+
+.card__content img {
+  display: block;
+  margin: auto;
+}
+
+.card_content__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+
+  border-left: 2px solid #dee2e6;
+  border-right: 2px solid #dee2e6;
+}
+
+.card_content__item--condition {
+  margin-bottom: 1.2rem;
 }
