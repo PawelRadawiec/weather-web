@@ -16,6 +16,7 @@ import { WeatherCardComponent } from './components/weather-card/weather-card.com
 
 import { MatButtonModule } from '@angular/material/button';
 import { DayPipe } from './pipes/day.pipe';
+import { CurrentComponent } from './current/current.component';
 @NgModule({
   declarations: [
     SearchFormComponent,
@@ -23,6 +24,7 @@ import { DayPipe } from './pipes/day.pipe';
     DetailsComponent,
     WeatherCardComponent,
     DayPipe,
+    CurrentComponent,
   ],
   imports: [
     CommonModule,

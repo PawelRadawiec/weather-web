@@ -1,0 +1,17 @@
+<section class="current-content">
+  <h3>Current data</h3>
+  <img [src]="current?.condition?.icon" />
+  <div class="current-content__data">
+    <p class="current-content__data--item">{{ current?.temp_c }} &#8451; / {{ current?.temp_f }} &#8457;</p>
+    <p class="current-content__data--item">
+      Wind {{ current?.wind_kph }} kph / {{ current?.wind_mph }} mph
+    </p>
+    <p class="current-content__data--item">Direction {{ current?.wind_dir }}</p>
+    <p class="current-content__data--item">
+      Humidity {{ current?.humidity }} &percnt;
+    </p>
+    <p class="current-content__data--item">
+      Pressure {{ current?.pressure_mb }} mb
+    </p>
+  </div>
+</section>
