@@ -22,7 +22,7 @@ export class WeatherStoreService {
   readonly cityCurrentDetails$ = this._cityCurrentDetailsSubject.asObservable();
 
   private _forecastSubject = new BehaviorSubject<ForecastDetails>(null);
-  readonly _forecastDetails$ = this._forecastSubject.asObservable();
+  readonly forecastDetails$ = this._forecastSubject.asObservable();
 
   constructor() {}
 

@@ -1,5 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { WeatherDetails } from 'src/app/models/weather-details.model';
+import {
+  ForecastDetails,
+  WeatherDetails,
+} from 'src/app/models/weather-details.model';
+
+export type WeatherDetailsCardType = WeatherDetails | ForecastDetails;
 
 @Component({
   selector: 'app-weather-card',
@@ -7,12 +12,9 @@ import { WeatherDetails } from 'src/app/models/weather-details.model';
   styleUrls: ['./weather-card.component.scss'],
 })
 export class WeatherCardComponent implements OnInit {
-  @Input() details: WeatherDetails;
-
-  // just for test case
-  @Input() displayDays = false;
+  @Input() details: WeatherDetailsCardType;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 }

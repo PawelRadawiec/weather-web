@@ -1,0 +1,17 @@
+<section>
+  <div class="forecast__days">
+    <div
+      class="forecast__day"
+      *ngFor="let forecastItem of forecastDetails?.forecast?.forecastday"
+    >
+      <p>{{ forecastItem?.date | date: "EEEE" }}</p>
+      <div class="forecast__day--condition">
+        <img [src]="forecastItem?.day?.condition?.icon" />
+        <p>{{ forecastItem?.day?.condition?.text }}</p>
+      </div>
+
+      <p>{{ forecastItem?.day?.avgtemp_c }} &#8451;</p>
+      <p>{{ forecastItem?.day?.avgtemp_f }} &#8457;</p>
+    </div>
+  </div>
+</section>

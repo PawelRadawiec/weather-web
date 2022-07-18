@@ -15,30 +15,6 @@
     </div>
   </header>
   <section class="card__content">
-
     <ng-content></ng-content>
-
-    <div class="card_content__items" *ngIf="displayDays">
-      <div class="card_content__item">
-        <p>{{ details?.current?.is_day | day }}</p>
-        <div class="card_content__item--condition">
-          <img [src]="details?.current?.condition?.icon" />
-          <p>{{ details?.current?.condition?.text }}</p>
-        </div>
-  
-        <p>{{ details?.current?.temp_c }} &#8451;</p>
-        <p>{{ details?.current?.temp_f }} &#8457;</p>
-      </div>
-      <div class="card_content__item">
-        <p>{{ details?.current?.is_day | day }}</p>
-        <div class="card_content__item--condition">
-          <img [src]="details?.current?.condition?.icon" />
-          <p>{{ details?.current?.condition?.text }}</p>
-        </div>
-  
-        <p>{{ details?.current?.temp_c }} &#8451;</p>
-        <p>{{ details?.current?.temp_f }} &#8457;</p>
-      </div>
-    </div>
   </section>
 </div>
