@@ -10,5 +10,11 @@
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
+  },
+  "/forecast/*": {
+    "target": "https://weatherapi-com.p.rapidapi.com",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 }
