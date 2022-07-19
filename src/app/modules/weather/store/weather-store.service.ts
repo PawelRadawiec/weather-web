@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { CitySearchResult } from 'src/app/models/city-search-response.model';
 import {
   ForecastDetails,
@@ -24,6 +24,12 @@ export class WeatherStoreService {
   private _forecastSubject = new BehaviorSubject<ForecastDetails>(null);
   readonly forecastDetails$ = this._forecastSubject.asObservable();
 
+  private _forecastLoadingSubject = new BehaviorSubject<boolean>(false);
+  readonly forecastLoading$ = this._forecastLoadingSubject.asObservable();
+
+  private _currentLoadingSubject = new BehaviorSubject<boolean>(false);
+  readonly currentLoading$ = this._currentLoadingSubject.asObservable();
+
   constructor() {}
 
   setLoading(loading: boolean) {
@@ -40,5 +46,13 @@ export class WeatherStoreService {
 
   setForecastDetails(forecastDetails: ForecastDetails) {
     this._forecastSubject.next(forecastDetails);
+  }
+
+  setForecastLoading(loading: boolean) {
+    this._forecastLoadingSubject.next(loading);
+  }
+
+  setCurrentLoading(loading: boolean) {
+    this._currentLoadingSubject.next(loading);
   }
 }

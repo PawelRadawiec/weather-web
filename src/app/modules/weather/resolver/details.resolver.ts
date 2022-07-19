@@ -23,8 +23,7 @@ export class DetailsResolver implements Resolve<boolean> {
     const forecastDetails$ = this.weatherService.forecast(
       latitude,
       longitude,
-      name,
-      7
+      name
     );
     
     return forkJoin([currentDetails$, forecastDetails$]).pipe(

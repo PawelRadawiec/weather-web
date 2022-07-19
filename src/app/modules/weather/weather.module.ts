@@ -16,8 +16,9 @@ import { WeatherCardComponent } from './components/weather-card/weather-card.com
 
 import { MatButtonModule } from '@angular/material/button';
 import { DayPipe } from './pipes/day.pipe';
-import { CurrentComponent } from './current/current.component';
+import { CurrentComponent } from './components/current/current.component';
 import { ForecastComponent } from './components/forecast/forecast.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     SearchFormComponent,
@@ -36,6 +37,7 @@ import { ForecastComponent } from './components/forecast/forecast.component';
     A11yModule,
     MatIconModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
     HttpClientModule,
     MatProgressBarModule,
     MatButtonModule,

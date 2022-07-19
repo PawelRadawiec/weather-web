@@ -39,11 +39,11 @@ export class WeatherService {
       );
   }
 
-  forecast(latitude: number, longitude: number, name: string, days: number) {
+  forecast(latitude: number, longitude: number, name: string) {
     this.weatherStore.setLoading(true);
     return this.http
       .get<ForecastDetails>('/forecast.json', {
-        params: { q: `${latitude},${longitude},${name}`, days },
+        params: { q: `${latitude},${longitude},${name}`, days: 3 },
       })
       .pipe(
         shareReplay(),

@@ -11,8 +11,11 @@
         <p>{{ details?.location?.region }}</p>
         <p>{{ details?.location?.tz_id }}</p>
       </div>
-      <button mat-raised-button color="primary" (click)="onRefresh()">
-        Refresh
+      <button mat-stroked-button color="primary" (click)="onRefresh()">
+        <span *ngIf="!(contentChild.loading | async)">Refresh</span>
+        <mat-icon *ngIf="contentChild.loading | async"
+          ><mat-spinner [diameter]="25"></mat-spinner
+        ></mat-icon>
       </button>
     </div>
   </header>

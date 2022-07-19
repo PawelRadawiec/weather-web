@@ -1,4 +1,5 @@
 import { Component, ContentChild, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { WEATHER_CARD_CONTENT } from 'src/app/models/tokens.model';
 import { WeatherCardCommon } from 'src/app/models/weather-card-common.model';
 import {
@@ -16,12 +17,17 @@ export type WeatherDetailsCardType = WeatherDetails | ForecastDetails;
 export class WeatherCardComponent implements OnInit {
   @Input() details: WeatherDetailsCardType;
 
+  loading: Observable<boolean>;
+
   @ContentChild(WEATHER_CARD_CONTENT, { static: true })
   contentChild: WeatherCardCommon;
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loading = this.contentChild.loading
+  }
+  
 
   onRefresh() {
     this.contentChild.refresh();
