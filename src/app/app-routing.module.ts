@@ -6,7 +6,7 @@ const routes: Routes = [
     path: 'weather',
     loadChildren: () =>
       import('./modules/weather/weather.module').then((m) => m.WeatherModule),
-  },
+  }
 ];
 
 @NgModule({

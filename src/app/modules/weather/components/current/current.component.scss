@@ -1,0 +1,22 @@
+.current-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.current-content img {
+  width: 130px;
+}
+
+.current-content__data {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.current-content__data--item {
+    padding: 8px;
+    border: 2px solid #e9ecef;
+    border-radius: 5px;
+}

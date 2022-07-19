@@ -86,3 +86,8 @@ app-sidebar {
 app-footer {
   grid-area: footer;
 }
+
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #2A79FF!important;
+}

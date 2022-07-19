@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
+import { Router } from '@angular/router';
 import {
   Observable,
   filter,
@@ -17,7 +18,6 @@ import {
   debounceTime,
   Subscription,
   distinctUntilChanged,
-  finalize,
 } from 'rxjs';
 import { CitySearchResult } from 'src/app/models/city-search-response.model';
 import { WeatherService } from 'src/app/services/weather.service';
@@ -40,6 +40,7 @@ export class SearchFormComponent implements OnInit, OnDestroy {
   showPanel$: Observable<boolean>;
 
   constructor(
+    private router: Router,
     private focousMonitor: FocusMonitor,
     public weatherService: WeatherService,
     public weatherStore: WeatherStoreService
@@ -70,5 +71,7 @@ export class SearchFormComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  goToDetails(city: CitySearchResult) {}
+  goToDetails(city: CitySearchResult) {
+    this.router.navigate([`weather/details/${city.lat}/${city.lon}/${city.name}`]);
+  }
 }

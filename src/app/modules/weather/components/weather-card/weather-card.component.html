@@ -1,0 +1,30 @@
+<div class="card">
+  <header class="card__header">
+    <div class="card__header--left">
+      <h2>{{ details?.location?.name }}</h2>
+      <p>{{ details?.location?.localtime }}</p>
+    </div>
+
+    <div class="card__header--right">
+      <div>
+        <p>{{ details?.location?.country }}</p>
+        <p>{{ details?.location?.region }}</p>
+        <p>{{ details?.location?.tz_id }}</p>
+      </div>
+      <button
+        mat-stroked-button
+        color="primary"
+        [disabled]="contentChild.loading | async"
+        (click)="onRefresh()"
+      >
+        <span *ngIf="!(contentChild.loading | async)">Refresh</span>
+        <mat-icon *ngIf="contentChild.loading | async"
+          ><mat-spinner [diameter]="25"></mat-spinner
+        ></mat-icon>
+      </button>
+    </div>
+  </header>
+  <section class="card__content">
+    <ng-content></ng-content>
+  </section>
+</div>

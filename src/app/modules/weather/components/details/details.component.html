@@ -1,0 +1,17 @@
+<div class="details-content">
+  <ng-container
+    *ngIf="weatherStore.cityCurrentDetails$ | async as cityCurrentDetails"
+  >
+    <app-weather-card [details]="cityCurrentDetails">
+      <app-current [current]="cityCurrentDetails.current"></app-current>
+    </app-weather-card>
+  </ng-container>
+
+  <ng-container
+    *ngIf="weatherStore.forecastDetails$ | async as forecastDetails"
+  >
+    <app-weather-card [details]="forecastDetails">
+      <app-forecast [forecastDetails]="forecastDetails"></app-forecast>
+    </app-weather-card>
+  </ng-container>
+</div>

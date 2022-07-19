@@ -11,8 +11,24 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { DetailsComponent } from './components/details/details.component';
+import { WeatherCardComponent } from './components/weather-card/weather-card.component';
+
+import { MatButtonModule } from '@angular/material/button';
+import { DayPipe } from './pipes/day.pipe';
+import { CurrentComponent } from './components/current/current.component';
+import { ForecastComponent } from './components/forecast/forecast.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
-  declarations: [SearchFormComponent, SearchComponent],
+  declarations: [
+    SearchFormComponent,
+    SearchComponent,
+    DetailsComponent,
+    WeatherCardComponent,
+    DayPipe,
+    CurrentComponent,
+    ForecastComponent,
+  ],
   imports: [
     CommonModule,
     WeatherRoutingModule,
@@ -21,8 +37,10 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     A11yModule,
     MatIconModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
     HttpClientModule,
     MatProgressBarModule,
+    MatButtonModule,
   ],
   providers: [],
 })
