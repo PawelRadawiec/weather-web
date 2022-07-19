@@ -5,7 +5,6 @@ import { WEATHER_CARD_CONTENT } from 'src/app/models/tokens.model';
 import { WeatherCardCommon } from 'src/app/models/weather-card-common.model';
 import { Current } from 'src/app/models/weather-details.model';
 import { CurrentService } from '../../services/current.service';
-import { WeatherStoreService } from '../../store/weather-store.service';
 
 @Component({
   selector: 'app-current',
@@ -16,6 +15,7 @@ import { WeatherStoreService } from '../../store/weather-store.service';
       provide: WEATHER_CARD_CONTENT,
       useExisting: CurrentComponent,
     },
+    CurrentService,
   ],
 })
 export class CurrentComponent implements OnInit, WeatherCardCommon {
@@ -24,12 +24,11 @@ export class CurrentComponent implements OnInit, WeatherCardCommon {
 
   constructor(
     private route: ActivatedRoute,
-    private weatherStore: WeatherStoreService,
     private currentService: CurrentService
   ) {}
 
   ngOnInit() {
-    this.loading = this.weatherStore.currentLoading$;
+    this.loading = this.currentService.currentLoading$;
   }
 
   refresh() {
