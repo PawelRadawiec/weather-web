@@ -5,7 +5,7 @@
 }
 
 .forecast__days img {
-  display: block;
+  display: block; 
   margin: auto;
 }
 
@@ -28,4 +28,8 @@
 .forecast__day--condition {
   margin-bottom: 1.2rem;
   text-align: center;
+}
+
+.forecast__day--temp {
+  font-size: 0.8rem;
 }

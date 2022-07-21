@@ -87,7 +87,15 @@ app-footer {
   grid-area: footer;
 }
 
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #2a79ff !important;
+}
 
-.mat-progress-spinner circle, .mat-spinner circle {
-  stroke: #2A79FF!important;
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
 }

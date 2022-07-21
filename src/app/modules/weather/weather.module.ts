@@ -19,6 +19,8 @@ import { DayPipe } from './pipes/day.pipe';
 import { CurrentComponent } from './components/current/current.component';
 import { ForecastComponent } from './components/forecast/forecast.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
+
 @NgModule({
   declarations: [
     SearchFormComponent,
@@ -41,6 +43,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HttpClientModule,
     MatProgressBarModule,
     MatButtonModule,
+    MatDialogModule,
   ],
   providers: [],
 })
