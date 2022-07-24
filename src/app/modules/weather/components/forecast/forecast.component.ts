@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { WEATHER_CARD_CONTENT } from 'src/app/models/tokens.model';
 import { WeatherCardCommon } from 'src/app/models/weather-card-common.model';
-import { ForecastDetails } from 'src/app/models/weather-details.model';
+import { Day, ForecastDay, ForecastDetails } from 'src/app/models/weather-details.model';
 import { ForecastService } from '../../services/forecast.service';
+import { ForecastDetailsComponent } from '../forecast-details/forecast-details.component';
 
 @Component({
   selector: 'app-forecast',
@@ -24,7 +26,8 @@ export class ForecastComponent implements OnInit, WeatherCardCommon {
 
   constructor(
     private router: ActivatedRoute,
-    private forecastService: ForecastService
+    private forecastService: ForecastService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -35,4 +38,11 @@ export class ForecastComponent implements OnInit, WeatherCardCommon {
     const { latitude, longitude, name } = this.router.snapshot.params;
     this.forecastService.forecast(latitude, longitude, name);
   }
+
+  details(forecastday: ForecastDay) {
+    this.dialog.open(ForecastDetailsComponent, {
+      data: forecastday
+    })
+  }
+
 }

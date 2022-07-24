@@ -1,0 +1,12 @@
+.dialog-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    width: 600px;
+}
+
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

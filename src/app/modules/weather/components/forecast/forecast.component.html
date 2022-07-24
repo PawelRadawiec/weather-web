@@ -3,6 +3,7 @@
     <div
       class="forecast__day"
       *ngFor="let forecastItem of forecastDetails?.forecast?.forecastday"
+      (click)="details(forecastItem)"
     >
       <p>{{ forecastItem?.date | date: "EEEE" }}</p>
       <div class="forecast__day--condition">

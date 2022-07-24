@@ -1,0 +1,11 @@
+<div class="dialog-container">
+  <header class="dialog-header">
+    <h2>{{ data?.date }}</h2>
+    <button mat-button mat-stroked-button color="primary" (click)="hide()">
+      Toggle Series B
+    </button>
+  </header>
+  <section class="content">
+    <canvas baseChart [data]="lineChartData" [type]="lineChartType"></canvas>
+  </section>
+</div>

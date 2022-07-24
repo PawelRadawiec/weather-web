@@ -20,6 +20,9 @@ import { CurrentComponent } from './components/current/current.component';
 import { ForecastComponent } from './components/forecast/forecast.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ForecastDetailsComponent } from './components/forecast-details/forecast-details.component';
+import { NgChartsModule } from 'ng2-charts';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     DayPipe,
     CurrentComponent,
     ForecastComponent,
+    ForecastDetailsComponent,
   ],
   imports: [
     CommonModule,
@@ -44,6 +48,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatProgressBarModule,
     MatButtonModule,
     MatDialogModule,
+    NgChartsModule,
+    MatSlideToggleModule,
   ],
   providers: [],
 })
