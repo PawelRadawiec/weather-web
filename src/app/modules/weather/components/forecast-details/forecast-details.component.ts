@@ -1,5 +1,11 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 import { ForecastDay } from 'src/app/models/weather-details.model';
 import { ChartConfiguration, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
@@ -9,17 +15,19 @@ import { BaseChartDirective } from 'ng2-charts';
   templateUrl: './forecast-details.component.html',
   styleUrls: ['./forecast-details.component.scss'],
 })
-export class ForecastDetailsComponent implements OnInit {
+export class ForecastDetailsComponent implements OnChanges {
+  @Input() data: ForecastDay;
   lineChartType: ChartType = 'line';
   lineChartData: ChartConfiguration['data'];
 
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: ForecastDay) {}
+  constructor() {}
 
-  ngOnInit() {
-    console.log('DATA: ', this.data);
-    this.prepareData();
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['data']) {
+      this.prepareData();
+    }
   }
 
   hide() {
@@ -28,13 +36,13 @@ export class ForecastDetailsComponent implements OnInit {
   }
 
   prepareData() {
-    const dayName = new Date(this.data.date).toLocaleString('en-us', {
+    const dayName = new Date(this.data?.date).toLocaleString('en-us', {
       weekday: 'long',
     });
     this.lineChartData = {
       datasets: [
         {
-          data: this.data.hour.map((hour) => {
+          data: this.data?.hour?.map((hour) => {
             return hour.temp_c;
           }),
           label: `${dayName} (C)`,
@@ -47,7 +55,7 @@ export class ForecastDetailsComponent implements OnInit {
           fill: 'origin',
         },
         {
-          data: this.data.hour.map((hour) => {
+          data: this.data?.hour?.map((hour) => {
             return hour.temp_f;
           }),
           label: `${dayName} (F)`,
@@ -60,7 +68,7 @@ export class ForecastDetailsComponent implements OnInit {
           fill: 'origin',
         },
       ],
-      labels: this.data.hour.map((hour) => {
+      labels: this.data?.hour?.map((hour) => {
         const time = new Date(hour.time);
         return `${time.getHours()}:00`;
       }),

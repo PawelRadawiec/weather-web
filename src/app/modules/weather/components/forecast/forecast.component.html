@@ -3,6 +3,7 @@
     <div
       class="forecast__day"
       *ngFor="let forecastItem of forecastDetails?.forecast?.forecastday"
+      [class.forecast__day--active]="forecastItem?.date === selectedDay?.date"
       (click)="details(forecastItem)"
     >
       <p>{{ forecastItem?.date | date: "EEEE" }}</p>
@@ -26,5 +27,8 @@
         {{ forecastItem?.day?.maxtemp_f }} &#8457;
       </p>
     </div>
+  </div>
+  <div class="forecast__day--details" *ngIf="selectedDay">
+    <app-forecast-details [data]="selectedDay"></app-forecast-details>
   </div>
 </section>

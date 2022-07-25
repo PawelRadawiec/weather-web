@@ -10,7 +10,9 @@ import { RouterModule } from '@angular/router';
 import { NavComponent } from './components/nav/nav.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatSlideToggleModule,
     RouterModule,
+    MatSidenavModule,
+    MatCheckboxModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent,

@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ForecastDetailsComponent } from './components/forecast-details/forecast-details.component';
 import { NgChartsModule } from 'ng2-charts';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatDialogModule,
     NgChartsModule,
     MatSlideToggleModule,
+    MatExpansionModule,
   ],
   providers: [],
 })

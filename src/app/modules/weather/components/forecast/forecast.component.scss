@@ -1,11 +1,14 @@
 .forecast__days {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   justify-content: center;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .forecast__days img {
-  display: block; 
+  display: block;
   margin: auto;
 }
 
@@ -14,15 +17,26 @@
   flex-direction: column;
   align-items: center;
   padding: 8px;
-  border-left: 2px solid #009688;
+  border: 2px solid #009688;
+  border-radius: 12px;
+  width: 150px;
 }
 
 .forecast__day:hover {
   background: #009688;
 }
 
-.forecast__day:last-of-type {
-  border-right: 2px solid #009688;
+.forecast__day--active {
+  background: #0ca678;
+  border: 2px solid #0ca678;
+  -webkit-box-shadow: -1px -1px 10px 0px rgba(12, 166, 120, 1);
+  -moz-box-shadow: -1px -1px 10px 0px rgba(12, 166, 120, 1);
+  box-shadow: -1px -1px 10px 0px rgba(12, 166, 120, 1);
+}
+
+.forecast__day--active:hover {
+  background: #0ca678;
+  border: 2px solid #0ca678;
 }
 
 .forecast__day--condition {

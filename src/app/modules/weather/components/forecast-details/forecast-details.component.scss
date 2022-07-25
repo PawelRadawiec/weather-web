@@ -1,12 +1,17 @@
 .dialog-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    width: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 }
 
 .dialog-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 200px;
 }
