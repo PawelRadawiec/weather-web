@@ -9,9 +9,9 @@ $input-width: 70rem;
   display: flex;
   flex-direction: column;
 
-  background: #fff;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border: 3px solid #009688;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
   max-width: $input-width;
   width: 70vw;
 }
@@ -28,5 +28,10 @@ $input-width: 70rem;
 }
 
 .search-form__panel__item:hover {
-  background: #e8e8e8;
+  background: #009688;
+}
+
+.search-form__panel__item:hover:last-child {
+  border-bottom-left-radius: 0.7rem;
+  border-bottom-right-radius: 0.7rem;
 }
