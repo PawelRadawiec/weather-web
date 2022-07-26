@@ -6,6 +6,64 @@
     </button>
   </header>
   <section class="content">
-    <canvas baseChart [data]="lineChartData" [type]="lineChartType"></canvas>
+    <!-- <app-forecast-details-tabs></app-forecast-details-tabs> -->
+
+    <div class="forecast-group" [ngSwitch]="option">
+      <div class="forecast-group-buttons">
+        <div
+          class="forecast-group-button"
+          [class.forecast-group-button--selected]="option === options.CHART"
+          (click)="toogleTab(options.CHART)"
+        >
+          <p>Charts</p>
+        </div>
+
+        <div
+          class="forecast-group-button"
+          [class.forecast-group-button--selected]="option === options.DETAILS"
+          (click)="toogleTab(options.DETAILS)"
+        >
+          <p>Details</p>
+        </div>
+      </div>
+
+      <div class="forecast-group-tab" *ngSwitchCase="options.CHART">
+        <canvas
+          baseChart
+          [data]="lineChartData"
+          [type]="lineChartType"
+        ></canvas>
+      </div>
+      <div class="forecast-group-tab" *ngSwitchCase="options.DETAILS">
+        <div class="tab-details">
+          <div class="details-item">
+            <p>Moonset</p>
+            <p>{{ data?.astro?.moonset }}</p>
+          </div>
+          <div class="details-item">
+            <p>Moonrise</p>
+            <p>{{ data?.astro?.moonrise }}</p>
+          </div>
+          <div class="details-item">
+            <p>Moonphase</p>
+            <p>{{ data?.astro?.moon_phase }}</p>
+          </div>
+          <div class="details-item">
+            <p>Sunrise</p>
+            <p>{{ data?.astro?.sunrise }}</p>
+          </div>
+          <div class="details-item">
+            <p>Sunset</p>
+            <p>{{ data?.astro?.sunset }}</p>
+          </div>
+        </div>
+        <div class="tab-details">
+          <div class="details-item">
+            <p>Max temp</p>
+            <p>{{ data?.day?.maxtemp_c }} &#8451;</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </div>

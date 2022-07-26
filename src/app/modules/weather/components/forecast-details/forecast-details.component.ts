@@ -10,19 +10,31 @@ import { ForecastDay } from 'src/app/models/weather-details.model';
 import { ChartConfiguration, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
+export enum TabOptions {
+  CHART = 'CHART',
+  DETAILS = 'DETAILS',
+}
+
 @Component({
   selector: 'app-forecast-details',
   templateUrl: './forecast-details.component.html',
   styleUrls: ['./forecast-details.component.scss'],
 })
-export class ForecastDetailsComponent implements OnChanges {
+export class ForecastDetailsComponent implements OnInit, OnChanges {
   @Input() data: ForecastDay;
   lineChartType: ChartType = 'line';
   lineChartData: ChartConfiguration['data'];
 
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 
+  option: TabOptions;
+  options = TabOptions;
+
   constructor() {}
+
+  ngOnInit() {
+    this.option = this.options.CHART;
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
@@ -33,6 +45,10 @@ export class ForecastDetailsComponent implements OnChanges {
   hide() {
     const isHidden = this.chart?.isDatasetHidden(1);
     this.chart?.hideDataset(1, !isHidden);
+  }
+
+  toogleTab(option: TabOptions) {
+    this.option = option;
   }
 
   prepareData() {
