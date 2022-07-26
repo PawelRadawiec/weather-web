@@ -47,11 +47,32 @@ canvas {
   min-height: 150px;
 }
 
+.chart-header {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
 .tab-details {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1rem;
   margin-top: 1rem;
+}
+
+.tab-details__left,
+.tab-details__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 48%;
+}
+
+.tab-details_item {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+  border-bottom: 2px solid #009688;
 }
 
 .details-item {

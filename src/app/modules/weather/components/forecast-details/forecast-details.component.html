@@ -1,9 +1,6 @@
 <div class="dialog-container">
   <header class="dialog-header">
     <h2>{{ data?.date }}</h2>
-    <button mat-button mat-stroked-button color="primary" (click)="hide()">
-      Toggle Series B
-    </button>
   </header>
   <section class="content">
     <!-- <app-forecast-details-tabs></app-forecast-details-tabs> -->
@@ -28,6 +25,17 @@
       </div>
 
       <div class="forecast-group-tab" *ngSwitchCase="options.CHART">
+        <div class="chart-header">
+          <button
+            mat-button
+            mat-stroked-button
+            color="primary"
+            (click)="hide()"
+          >
+            Fahrenheit
+          </button>
+        </div>
+
         <canvas
           baseChart
           [data]="lineChartData"
@@ -36,31 +44,26 @@
       </div>
       <div class="forecast-group-tab" *ngSwitchCase="options.DETAILS">
         <div class="tab-details">
-          <div class="details-item">
-            <p>Moonset</p>
-            <p>{{ data?.astro?.moonset }}</p>
+          <div class="tab-details__left">
+            <div class="tab-details_item">
+              <p>Moonset</p>
+              <p>{{ data?.astro?.moonset }}</p>
+            </div>
+            <div class="tab-details_item">
+              <p>Sunset</p>
+              <p>{{ data?.astro?.sunset }}</p>
+            </div>
           </div>
-          <div class="details-item">
-            <p>Moonrise</p>
-            <p>{{ data?.astro?.moonrise }}</p>
-          </div>
-          <div class="details-item">
-            <p>Moonphase</p>
-            <p>{{ data?.astro?.moon_phase }}</p>
-          </div>
-          <div class="details-item">
-            <p>Sunrise</p>
-            <p>{{ data?.astro?.sunrise }}</p>
-          </div>
-          <div class="details-item">
-            <p>Sunset</p>
-            <p>{{ data?.astro?.sunset }}</p>
-          </div>
-        </div>
-        <div class="tab-details">
-          <div class="details-item">
-            <p>Max temp</p>
-            <p>{{ data?.day?.maxtemp_c }} &#8451;</p>
+
+          <div class="tab-details__right">
+            <div class="tab-details_item">
+              <p>Moonrise</p>
+              <p>{{ data?.astro?.moonrise }}</p>
+            </div>
+            <div class="tab-details_item">
+              <p>Sunrise</p>
+              <p>{{ data?.astro?.sunrise }}</p>
+            </div>
           </div>
         </div>
       </div>

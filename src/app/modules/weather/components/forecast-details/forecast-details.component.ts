@@ -82,6 +82,7 @@ export class ForecastDetailsComponent implements OnInit, OnChanges {
           pointHoverBackgroundColor: '#fff',
           pointHoverBorderColor: '#dbe4ff',
           fill: 'origin',
+          hidden: true
         },
       ],
       labels: this.data?.hour?.map((hour) => {
