@@ -1,0 +1,11 @@
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 150px;
+}
+
+.chart-header {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}

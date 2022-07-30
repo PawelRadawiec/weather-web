@@ -3,7 +3,6 @@
     <h2>{{ data?.date }}</h2>
   </header>
   <section class="content">
-
     <div class="forecast-group" [ngSwitch]="option">
       <div class="forecast-group-buttons">
         <div
@@ -13,7 +12,6 @@
         >
           <p>Charts</p>
         </div>
-
         <div
           class="forecast-group-button"
           [class.forecast-group-button--selected]="option === options.DETAILS"
@@ -24,24 +22,7 @@
       </div>
 
       <div class="forecast-group-tab" *ngSwitchCase="options.CHART">
-
-        <div class="chart-header">
-          <button
-            mat-button
-            mat-stroked-button
-            color="primary"
-            (click)="hide()"
-          >
-            Fahrenheit
-          </button>
-        </div>
-
-        <canvas
-          baseChart
-          [data]="lineChartData"
-          [type]="lineChartType"
-        ></canvas>
-
+        <app-forecast-chart-tab [data]="data"></app-forecast-chart-tab>
       </div>
       <div class="forecast-group-tab" *ngSwitchCase="options.DETAILS">
         <app-forecast-details-tab [data]="data"></app-forecast-details-tab>
