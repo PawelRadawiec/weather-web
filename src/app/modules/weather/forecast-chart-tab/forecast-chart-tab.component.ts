@@ -1,7 +1,9 @@
 import {
+  AfterViewInit,
   Component,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges,
   ViewChild,
@@ -9,35 +11,70 @@ import {
 import { ForecastDay } from 'src/app/models/weather-details.model';
 import { ChartConfiguration, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import {
+  ForecastCommonTabService,
+  TempMode,
+} from 'src/app/services/forecast-common-tab.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-forecast-chart-tab',
   templateUrl: './forecast-chart-tab.component.html',
   styleUrls: ['./forecast-chart-tab.component.scss'],
 })
-export class ForecastChartTabComponent implements OnInit, OnChanges {
+export class ForecastChartTabComponent
+  implements OnInit, OnChanges, OnDestroy, AfterViewInit
+{
   @Input() data: ForecastDay;
-  lineChartType: ChartType = 'line';
-  lineChartData: ChartConfiguration['data'];
-
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 
-  constructor() {}
+  tempMode: TempMode;
+  lineChartType: ChartType = 'line';
+  lineChartData: ChartConfiguration['data'];
+  subscription = new Subscription();
 
-  ngOnInit() {}
+  constructor(private commonTabService: ForecastCommonTabService) {}
+
+  ngOnInit() {
+    this.commonTabService.tempMode$.subscribe((mode) =>
+      this.setDatasetHidden(mode)
+    );
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
       this.prepareData();
+      this.setDatasetHidden(this.tempMode);
     }
   }
 
-  hide() {
-    const isHidden = this.chart?.isDatasetHidden(1);
-    this.chart?.hideDataset(1, !isHidden);
+  ngAfterViewInit() {
+    this.setDatasetHidden(this.tempMode);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  setDatasetHidden(tempMode: TempMode) {
+    this.tempMode = tempMode;
+    if (!this.chart) {
+      return;
+    }
+    switch (tempMode) {
+      case TempMode.CELSIUS:
+        this.chart.hideDataset(0, false);
+        this.chart.hideDataset(1, true);
+        break;
+      case TempMode.FAHRENHEIT:
+        this.chart.hideDataset(0, true);
+        this.chart.hideDataset(1, false);
+        break;
+    }
   }
 
   prepareData() {
+    console.log('prepareData');
     const dayName = new Date(this.data?.date).toLocaleString('en-us', {
       weekday: 'long',
     });
@@ -55,6 +92,7 @@ export class ForecastChartTabComponent implements OnInit, OnChanges {
           pointHoverBackgroundColor: '#fff',
           pointHoverBorderColor: '#d0ebff',
           fill: 'origin',
+          hidden: this.tempMode === TempMode.CELSIUS,
         },
         {
           data: this.data?.hour?.map((hour) => {
@@ -68,7 +106,7 @@ export class ForecastChartTabComponent implements OnInit, OnChanges {
           pointHoverBackgroundColor: '#fff',
           pointHoverBorderColor: '#dbe4ff',
           fill: 'origin',
-          hidden: true,
+          hidden: this.tempMode === TempMode.FAHRENHEIT,
         },
       ],
       labels: this.data?.hour?.map((hour) => {
@@ -77,5 +115,4 @@ export class ForecastChartTabComponent implements OnInit, OnChanges {
       }),
     };
   }
-  
 }

@@ -25,6 +25,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ForecastDetailsTabComponent } from './forecast-details-tab/forecast-details-tab.component';
 import { ForecastChartTabComponent } from './forecast-chart-tab/forecast-chart-tab.component';
+import { ForecastCommonTabComponent } from './forecast-common-tab/forecast-common-tab.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ForecastChartTabComponent } from './forecast-chart-tab/forecast-chart-t
     ForecastComponent,
     ForecastDetailsComponent,
     ForecastDetailsTabComponent,
-    ForecastChartTabComponent
+    ForecastChartTabComponent,
+    ForecastCommonTabComponent
   ],
   imports: [
     CommonModule,

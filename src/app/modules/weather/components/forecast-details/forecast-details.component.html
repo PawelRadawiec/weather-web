@@ -21,6 +21,8 @@
         </div>
       </div>
 
+      <app-forecast-common-tab></app-forecast-common-tab>
+
       <div class="forecast-group-tab" *ngSwitchCase="options.CHART">
         <app-forecast-chart-tab [data]="data"></app-forecast-chart-tab>
       </div>
