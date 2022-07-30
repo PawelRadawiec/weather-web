@@ -1,10 +1,14 @@
-<mat-toolbar color="primary">
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>wb_sunny</mat-icon>
-  </button>
-  <span>Weather</span>
+<mat-toolbar class="header" color="primary">
+  <div class="header-left">
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon class="header-icon">wb_sunny</mat-icon>
+    </button>
+    <p>Weather</p>
+  </div>
+
+  <mat-slide-toggle [formControl]="theme">Dark</mat-slide-toggle>
 </mat-toolbar>

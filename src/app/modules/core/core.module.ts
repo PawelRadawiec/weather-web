@@ -9,6 +9,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { NavComponent } from './components/nav/nav.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,12 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    ReactiveFormsModule,
+    MatSlideToggleModule,
     RouterModule,
+    MatSidenavModule,
+    MatCheckboxModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent,

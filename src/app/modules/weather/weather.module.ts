@@ -19,6 +19,14 @@ import { DayPipe } from './pipes/day.pipe';
 import { CurrentComponent } from './components/current/current.component';
 import { ForecastComponent } from './components/forecast/forecast.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ForecastDetailsComponent } from './components/forecast-details/forecast-details.component';
+import { NgChartsModule } from 'ng2-charts';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ForecastDetailsTabComponent } from './forecast-details-tab/forecast-details-tab.component';
+import { ForecastChartTabComponent } from './forecast-chart-tab/forecast-chart-tab.component';
+import { ForecastCommonTabComponent } from './forecast-common-tab/forecast-common-tab.component';
+
 @NgModule({
   declarations: [
     SearchFormComponent,
@@ -28,6 +36,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     DayPipe,
     CurrentComponent,
     ForecastComponent,
+    ForecastDetailsComponent,
+    ForecastDetailsTabComponent,
+    ForecastChartTabComponent,
+    ForecastCommonTabComponent
   ],
   imports: [
     CommonModule,
@@ -41,6 +53,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HttpClientModule,
     MatProgressBarModule,
     MatButtonModule,
+    MatDialogModule,
+    NgChartsModule,
+    MatSlideToggleModule
   ],
   providers: [],
 })

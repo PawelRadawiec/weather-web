@@ -1,0 +1,14 @@
+.common-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.common-buttons button {
+  transition: background 0.4s;
+}
+
+.selected {
+  color: #fff !important;
+  background: #0ca678;
+}

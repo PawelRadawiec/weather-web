@@ -3,7 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { WEATHER_CARD_CONTENT } from 'src/app/models/tokens.model';
 import { WeatherCardCommon } from 'src/app/models/weather-card-common.model';
-import { ForecastDetails } from 'src/app/models/weather-details.model';
+import {
+  ForecastDay,
+  ForecastDetails,
+} from 'src/app/models/weather-details.model';
 import { ForecastService } from '../../services/forecast.service';
 
 @Component({
@@ -21,6 +24,7 @@ import { ForecastService } from '../../services/forecast.service';
 export class ForecastComponent implements OnInit, WeatherCardCommon {
   @Input() forecastDetails: ForecastDetails;
   loading: Observable<boolean>;
+  selectedDay: ForecastDay;
 
   constructor(
     private router: ActivatedRoute,
@@ -34,5 +38,9 @@ export class ForecastComponent implements OnInit, WeatherCardCommon {
   refresh() {
     const { latitude, longitude, name } = this.router.snapshot.params;
     this.forecastService.forecast(latitude, longitude, name);
+  }
+
+  details(forecastday: ForecastDay) {
+    this.selectedDay = forecastday;
   }
 }

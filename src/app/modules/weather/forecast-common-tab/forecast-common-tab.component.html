@@ -1,0 +1,21 @@
+<div class="common-buttons">
+  <button
+    mat-button
+    mat-stroked-button
+    color="primary"
+    [class.selected]="(commonService.tempMode$ | async) === tempMode.CELSIUS"
+    (click)="toggleTemp(tempMode.CELSIUS)"
+  >
+    Celsius
+  </button>
+
+  <button
+    mat-button
+    mat-stroked-button
+    color="primary"
+    [class.selected]="(commonService.tempMode$ | async) === tempMode.FAHRENHEIT"
+    (click)="toggleTemp(tempMode.FAHRENHEIT)"
+  >
+    Fahrenheit
+  </button>
+</div>

@@ -1,0 +1,34 @@
+<div class="dialog-container">
+  <header class="dialog-header">
+    <h2>{{ data?.date }}</h2>
+  </header>
+  <section class="content">
+    <div class="forecast-group" [ngSwitch]="option">
+      <div class="forecast-group-buttons">
+        <div
+          class="forecast-group-button"
+          [class.forecast-group-button--selected]="option === options.CHART"
+          (click)="toogleTab(options.CHART)"
+        >
+          <p>Charts</p>
+        </div>
+        <div
+          class="forecast-group-button"
+          [class.forecast-group-button--selected]="option === options.DETAILS"
+          (click)="toogleTab(options.DETAILS)"
+        >
+          <p>Details</p>
+        </div>
+      </div>
+
+      <app-forecast-common-tab></app-forecast-common-tab>
+
+      <div class="forecast-group-tab" *ngSwitchCase="options.CHART">
+        <app-forecast-chart-tab [data]="data"></app-forecast-chart-tab>
+      </div>
+      <div class="forecast-group-tab" *ngSwitchCase="options.DETAILS">
+        <app-forecast-details-tab [data]="data"></app-forecast-details-tab>
+      </div>
+    </div>
+  </section>
+</div>
