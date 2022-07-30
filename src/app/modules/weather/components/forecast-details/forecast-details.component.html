@@ -3,7 +3,6 @@
     <h2>{{ data?.date }}</h2>
   </header>
   <section class="content">
-    <!-- <app-forecast-details-tabs></app-forecast-details-tabs> -->
 
     <div class="forecast-group" [ngSwitch]="option">
       <div class="forecast-group-buttons">
@@ -25,6 +24,7 @@
       </div>
 
       <div class="forecast-group-tab" *ngSwitchCase="options.CHART">
+
         <div class="chart-header">
           <button
             mat-button
@@ -41,31 +41,10 @@
           [data]="lineChartData"
           [type]="lineChartType"
         ></canvas>
+
       </div>
       <div class="forecast-group-tab" *ngSwitchCase="options.DETAILS">
-        <div class="tab-details">
-          <div class="tab-details__left">
-            <div class="tab-details_item">
-              <p>Moonset</p>
-              <p>{{ data?.astro?.moonset }}</p>
-            </div>
-            <div class="tab-details_item">
-              <p>Sunset</p>
-              <p>{{ data?.astro?.sunset }}</p>
-            </div>
-          </div>
-
-          <div class="tab-details__right">
-            <div class="tab-details_item">
-              <p>Moonrise</p>
-              <p>{{ data?.astro?.moonrise }}</p>
-            </div>
-            <div class="tab-details_item">
-              <p>Sunrise</p>
-              <p>{{ data?.astro?.sunrise }}</p>
-            </div>
-          </div>
-        </div>
+        <app-forecast-details-tab [data]="data"></app-forecast-details-tab>
       </div>
     </div>
   </section>
