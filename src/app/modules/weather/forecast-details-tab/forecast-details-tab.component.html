@@ -1,45 +1,56 @@
 <div class="tab-details">
-    <div class="tab-details__left">
-      <div class="tab-details_item">
-        <p>Moonset</p>
-        <p>{{ data?.astro?.moonset }}</p>
-      </div>
-      <div class="tab-details_item">
-        <p>Sunset</p>
-        <p>{{ data?.astro?.sunset }}</p>
-      </div>
-      <div class="tab-details_item">
-        <p>Max temp</p>
-        <p>{{ data?.day?.maxtemp_c }} &#8451;</p>
-      </div>
-      <div class="tab-details_item">
-        <p>Max temp F</p>
-        <p>{{ data?.day?.maxtemp_f }} &#8457;</p>
-      </div>
+  <div class="tab-details__left">
+    <div class="tab-details_item">
+      <p>Moonset</p>
+      <p>{{ data?.astro?.moonset }}</p>
     </div>
-
-    <div class="tab-details__right">
-      <div class="tab-details_item">
-        <p>Moonrise</p>
-        <p>{{ data?.astro?.moonrise }}</p>
-      </div>
-      <div class="tab-details_item">
-        <p>Sunrise</p>
-        <p>{{ data?.astro?.sunrise }}</p>
-      </div>
-      <div class="tab-details_item">
-        <p>Min temp</p>
-        <p>{{ data?.day?.mintemp_c }} &#8451;</p>
-      </div>
-      <div class="tab-details_item">
-        <p>Max temp</p>
-        <p>{{ data?.day?.mintemp_f }} &#8457;</p>
-      </div>
+    <div class="tab-details_item">
+      <p>Sunset</p>
+      <p>{{ data?.astro?.sunset }}</p>
+    </div>
+    <div
+      class="tab-details_item"
+      *ngIf="(commonTabService.tempMode$ | async) === tempMode.CELSIUS"
+    >
+      <p>Max temp</p>
+      <p>{{ data?.day?.maxtemp_c }} &#8451;</p>
+    </div>
+    <div
+      class="tab-details_item"
+      *ngIf="(commonTabService.tempMode$ | async) === tempMode.FAHRENHEIT"
+    >
+      <p>Max temp</p>
+      <p>{{ data?.day?.maxtemp_f }} &#8457;</p>
     </div>
   </div>
 
+  <div class="tab-details__right">
+    <div class="tab-details_item">
+      <p>Moonrise</p>
+      <p>{{ data?.astro?.moonrise }}</p>
+    </div>
+    <div class="tab-details_item">
+      <p>Sunrise</p>
+      <p>{{ data?.astro?.sunrise }}</p>
+    </div>
+    <div
+      class="tab-details_item"
+      *ngIf="(commonTabService.tempMode$ | async) === tempMode.CELSIUS"
+    >
+      <p>Min temp</p>
+      <p>{{ data?.day?.mintemp_c }} &#8451;</p>
+    </div>
+    <div
+      class="tab-details_item"
+      *ngIf="(commonTabService.tempMode$ | async) === tempMode.FAHRENHEIT"
+    >
+      <p>Min temp</p>
+      <p>{{ data?.day?.mintemp_f }} &#8457;</p>
+    </div>
+  </div>
+</div>
 
-  <!-- {
+<!-- {
   "maxtemp_c": 15.1,
   "maxtemp_f": 59.2,
   "mintemp_c": 12.9,
