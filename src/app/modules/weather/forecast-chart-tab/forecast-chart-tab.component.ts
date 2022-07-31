@@ -36,9 +36,10 @@ export class ForecastChartTabComponent
   constructor(private commonTabService: ForecastCommonTabService) {}
 
   ngOnInit() {
-    this.commonTabService.tempMode$.subscribe((mode) =>
-      this.setDatasetHidden(mode)
-    );
+    this.commonTabService.tempMode$.subscribe((mode) => {
+      this.prepareData();
+      this.setDatasetHidden(mode);
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -65,16 +66,17 @@ export class ForecastChartTabComponent
       case TempMode.CELSIUS:
         this.chart.hideDataset(0, false);
         this.chart.hideDataset(1, true);
+        this.chart.update();
         break;
       case TempMode.FAHRENHEIT:
         this.chart.hideDataset(0, true);
         this.chart.hideDataset(1, false);
+        this.chart.update();
         break;
     }
   }
 
   prepareData() {
-    console.log('prepareData');
     const dayName = new Date(this.data?.date).toLocaleString('en-us', {
       weekday: 'long',
     });
